@@ -16,14 +16,27 @@ function showPreloader() {
   });
 
   function showGallery() {
-    document.querySelector('.gallery').style.display = 'block';
-    document.querySelector('.heading').style.display = 'none';
-    document.querySelector('.close').style.display = 'block';
-
+    document.querySelector('.gallery').classList.remove('hidden');
+    document.querySelector('.heading').classList.add('hidden');
+    document.querySelector('.close').classList.remove('hidden');
+  
+    
+    setTimeout(function() {
+      document.querySelector('.gallery').style.display = 'block';
+      document.querySelector('.heading').style.display = 'none';
+      document.querySelector('.close').style.display = 'block';
+    }, 500); 
   }
-
+  
   function hideGallery() {
-    document.querySelector('.gallery').style.display = 'none';
-    document.querySelector('.heading').style.display = 'block';
-    document.querySelector('.close').style.display = 'none';
-  }
+    document.querySelector('.gallery').classList.add('hidden');
+    document.querySelector('.heading').classList.remove('hidden');
+    document.querySelector('.close').classList.add('hidden');
+  
+    
+    setTimeout(function() {
+      document.querySelector('.gallery').style.display = 'none';
+      document.querySelector('.heading').style.display = 'block';
+      document.querySelector('.close').style.display = 'none';
+    }, 500);
+  }  

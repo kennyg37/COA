@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -8,7 +11,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: #f1f1f1;
-    line-height: 1.6;
     font-size: 1rem;
     height: 100%;
     width: 100%;
@@ -54,7 +56,7 @@ body {
 	width: 1rem;
 	height: 1rem;
 	border-radius: 100%;
-	background-color: #138A36;
+	background-color: rgb(65, 192, 235);
 	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 	animation: sk-bouncedelay 1.4s infinite ease-in-out both; 
     /* i use an infinite animation to make the spinner keep spinning until a funtion stops it*/
@@ -95,6 +97,32 @@ body {
     /* display: none; */
 }
 
+.heading h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: din-condensed, sans-serif;
+}
+
+.heading p {
+    font-size: 1em;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.heading button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.75em;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: rgb(65, 192, 235);
+    color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+}
+
 
 /* gallery items */
 
@@ -102,7 +130,7 @@ body {
     display: block;
     gap: 1rem;
     padding: 1rem;
-    margin-top: 1rem;
+    margin-top: 0.1rem;
     display: none;
 }
 .items {
@@ -121,3 +149,168 @@ body {
     cursor: pointer;
     display: none;
 }
+
+.gallery, .heading, .close {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+  }
+  
+  .hidden {
+    opacity: 0;
+    pointer-events: none; 
+  }
+
+  /* overlay */
+
+ 
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    display: flex;
+    padding-left: 2rem;
+    align-items: center;
+}
+
+.item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    height: 26rem;
+}
+
+
+
+.text {
+    color: white;
+    font-size: 1em;
+    padding: 1rem;
+    margin-top: 15rem;
+    transition: transform 0.5s;
+    
+}
+.text h3{
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: din-condensed, sans-serif;
+}
+.text p {
+    font-size: 0.65em;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.background-image {
+    transition: transform 0.5s, filter 0.5s;
+}
+
+.item:hover .background-image {
+    transform: scale(1.1);
+    filter: blur(0.25rem) grayscale(100%);
+}
+
+.item:hover .text {
+    transform: translateY(-1rem);
+}
+
+.item .show-more {
+    visibility: hidden;
+    position: absolute;
+    bottom: 2rem;
+    color: rgb(65, 192, 235);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.55em;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.fa-arrow-right {
+    font-size: 1em;
+}
+
+.item:hover .show-more {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .item {
+        flex: 1 1 calc(50% - 2rem);
+    }
+    .text {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+    
+    *{
+        font-size: 15px;
+    }
+    
+    .item {
+        width: 100%;
+        flex: 1 1 100%;
+        height: 20rem;
+    }
+
+    .text {
+       display: none;
+    }
+
+    .item .show-more {
+        display: none;
+    }
+    .background-image {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.25rem;
+    }
+
+    .heading {
+        margin-top: 5rem;
+        padding: 0.5rem;
+    }
+
+    .item {
+        height: 18rem;
+    }
+
+    .text {
+        margin-top: 10rem;
+    }
+
+    .text h3 {
+        font-size: 1em;
+    }
+
+    .text p {
+        font-size: 0.45em;
+    }
+
+    .item .show-more {
+        font-size: 0.4em;
+    }
+
+    .close {
+        font-size: 1rem;
+    }
+}
+
