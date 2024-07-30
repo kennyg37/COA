@@ -9,3 +9,4 @@ To run the javascript files the user will need to install node js runtime on the
 navigate to the challenges folder and run the projects using `node filename`
 
 To run the gallery locally the user can navigate to the src folder and run index.html in their preferred browser
+
